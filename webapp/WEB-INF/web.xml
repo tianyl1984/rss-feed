@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>rssfeed</display-name>
+	<context-param>
+		<param-name>loggerName</param-name>
+		<param-value>rssfeed</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcUrl</param-name>
+		<param-value>jdbc:mysql://127.0.0.1:3306/rssfeed?useUnicode=true&amp;characterEncoding=utf-8</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcUsername</param-name>
+		<param-value>root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcPassword</param-name>
+		<param-value>tyl123</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<servlet-class>com.tianyl.core.mvc.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>basePackage</param-name>
+			<param-value>com.tianyl.rssfeed.web</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<listener>
+		<listener-class>com.tianyl.core.mvc.listener.ServerStartupListener</listener-class>
+	</listener>
+</web-app>

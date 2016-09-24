@@ -16,6 +16,7 @@ import com.tianyl.rssfeed.model.ArticleItem;
 import com.tianyl.rssfeed.model.RssSite;
 import com.tianyl.rssfeed.service.crawler.Crawler;
 import com.tianyl.rssfeed.service.crawler.HexoCrawler;
+import com.tianyl.rssfeed.service.crawler.YinWangCrawler;
 import com.tianyl.rssfeed.util.RssFeedUtil;
 
 public class RssCrawlerManager {
@@ -25,6 +26,7 @@ public class RssCrawlerManager {
 		List<RssSite> rssSites = rssSiteDAO.findAll();
 		List<Crawler> crawlers = new ArrayList<Crawler>();
 		crawlers.add(new HexoCrawler());
+		crawlers.add(new YinWangCrawler());
 		for (Crawler crawler : crawlers) {
 			Integer rsId = crawler.getRssSiteId();
 			RssSite rs = findRs(rssSites, rsId);
